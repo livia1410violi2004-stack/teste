@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#04060f" />
+    <title>LumiNova — Perfil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ===================== CÉU ===================== -->
+    <div class="sky" aria-hidden="true">
+      <div class="haze haze--north"></div>
+      <div class="haze haze--south"></div>
+      <div class="belt"></div>
+      <div class="stars stars--far"></div>
+      <div class="stars stars--near"></div>
+      <div class="vignette"></div>
+    </div>
+
+    <div class="app-shell">
+      <!-- ===================== SIDEBAR ===================== -->
+      <aside class="sidebar">
+        <a
+          class="brand"
+          href="perfil.html"
+          aria-label="LumiNova início"
+        >
+          <span class="brand-mark">✦</span><span>Lumi<span>Nova</span></span>
+        </a>
+        <p class="nav-label">ESPAÇO</p>
+        <nav class="main-nav">
+          <a href="geral.html" class="nav-link"
+            ><span>⌂</span> Geral</a
+          >
+          <a href="comunidades.html" class="nav-link"
+            ><span>◈</span> Comunidades</a
+          >
+          <a href="mentor-matching.html" class="nav-link"
+            ><span>♡</span> Mentor Matching</a
+          >
+          <a href="#" class="nav-link" data-construction="Explorar"
+            ><span>✧</span> Explorar</a
+          >
+          <a href="#" class="nav-link" data-construction="Atividades"
+            ><span>◷</span> Atividades</a
+          >
+          <a href="#" class="nav-link" data-construction="Conquistas"
+            ><span>♜</span> Conquistas</a
+          >
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="mini-profile">
+            <img
+              id="sideAvatar"
+              src=""
+              alt="Foto de perfil"
+            />
+            <div>
+              <strong id="sideName">Seu nome</strong
+              ><small>Seu espaço</small>
+            </div>
+            <span class="online-dot"></span>
+          </div>
+          <button class="settings-link" id="openSettings">
+            ⚙ Personalizar perfil
+          </button>
+        </div>
+      </aside>
+
+      <!-- ===================== CONTEÚDO ===================== -->
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumbs">LumiNova <span>/</span> Meu perfil</div>
+          <label class="search-box"
+            ><span>⌕</span
+            ><input type="search" placeholder="Buscar pessoas, comunidades..."
+          /></label>
+          <button
+            class="icon-button theme-toggle"
+            id="themeToggle"
+            aria-label="Ativar modo claro"
+            title="Alternar modo claro/escuro"
+          >
+            ☼
+          </button>
+          <button class="icon-button" aria-label="Notificações">
+            ♧<i></i>
+          </button>
+        </header>
+
+        <section class="profile-hero">
+          <div class="cover" id="cover">
+            <div class="cover-stars"></div>
+            <div class="cover-copy">
+              <span class="eyebrow">MEU UNIVERSO</span>
+              <p id="coverQuote">
+                grandes conquistas nascem<br />de boas conexões<span> ✦</span>
+              </p>
+            </div>
+            <button class="cover-edit" id="coverEdit">✎ Editar capa</button>
+          </div>
+          <div class="profile-main">
+            <div class="avatar-wrap">
+              <img
+                id="avatar"
+                src=""
+                alt="Foto de perfil"
+              />
+              <button
+                class="avatar-edit"
+                id="avatarEdit"
+                aria-label="Alterar foto"
+              >
+                ✎
+              </button>
+              <span class="status-dot"></span>
+            </div>
+            <div class="profile-info">
+              <div class="name-line">
+                <h1 id="displayName">Seu perfil</h1>
+                <span class="verified">✦</span
+                ><span class="level" id="profileLevel">NÍVEL 01</span>
+              </div>
+              <p class="handle" id="displayHandle"></p>
+              <p class="bio" id="displayBio">Adicione uma bio para apresentar seu universo.</p>
+              <div class="profile-meta">
+                <span id="profileLocation">⌖ Localização não informada</span><span id="profileRole">◈ Adicione seus interesses</span>
+              </div>
+            </div>
+            <div class="profile-actions">
+              <button class="button-secondary" id="editProfile">
+                ✎ Editar perfil</button
+              ><button class="button-primary" id="shareProfile">
+                ↗ Compartilhar
+              </button>
+            </div>
+          </div>
+          <div class="profile-tabs" role="tablist">
+            <button class="tab" data-tab="geral">Geral <span>•</span></button>
+            <button class="tab active" data-tab="comunidades">
+              Comunidades <span id="profileCommunityCount">0</span>
+            </button>
+            <button class="tab" data-tab="conquistas">
+              Conquistas <span id="profileAchievementCount">0</span>
+            </button>
+            <button class="tab" data-tab="sobre">Sobre</button>
+            <button class="tab" data-tab="atividade">Atividade</button>
+            <button class="tab customize-tab" id="openSettings2">
+              ＋ Personalizar
+            </button>
+          </div>
+        </section>
+
+        <div class="content-grid">
+          <section class="left-column">
+            <!-- GERAL -->
+            <section class="general-feed hidden" id="generalFeed">
+              <div class="section-heading">
+                <div>
+                  <span class="eyebrow">LUMINOVA • ESPAÇO ABERTO</span>
+                  <h2>
+                    Geral
+                    <span class="muted-count">/ o que está acontecendo?</span>
+                  </h2>
+                </div>
+                <span class="feed-live"><i></i> comunidade viva</span>
+              </div>
+              <form class="composer" id="postForm">
+                <img
+                  class="composer-avatar"
+                  id="composerAvatar"
+                  src=""
+                  alt=""
+                />
+                <div class="composer-main">
+                  <textarea
+                    id="postInput"
+                    maxlength="500"
+                    rows="3"
+                    placeholder="Compartilhe uma ideia, descoberta ou pergunta com todo mundo..."
+                    required
+                  ></textarea>
+                  <div class="composer-bottom">
+                    <div class="composer-hint">
+                      <span>✧</span> Sua voz também faz parte do universo
+                    </div>
+                    <button class="button-primary" type="submit">
+                      Publicar ↗
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <div class="feed-filters">
+                <span>Explorar conversas</span
+                ><button class="filter-chip active" type="button">
+                  Para você</button
+                ><button class="filter-chip" type="button" id="latestFilter">
+                  Mais recentes
+                </button>
+              </div>
+              <div id="postsList" class="posts-list"><div class="empty-feed-message">Ainda não há publicações. Seja a primeira pessoa a compartilhar uma ideia.</div></div>
+            </section>
+
+            <!-- COMUNIDADES: começa vazio; preenchido apenas com dados reais -->
+            <div class="section-heading community-heading">
+              <div><span class="eyebrow">MEU ESPAÇO</span><h2 id="sectionTitle">Minhas comunidades <span class="muted-count">/ 0</span></h2></div>
+              <button class="text-button" id="addCommunity" type="button">＋ Adicionar</button>
+            </div>
+            <div class="community-grid" id="communityGrid"><div class="empty-feed-message">Você ainda não participa de comunidades. Crie ou entre em uma para ela aparecer aqui.</div></div>
+
+            <!-- HABILIDADES: sem progresso fictício -->
+            <section class="profile-extra-section" id="skillTreeSection">
+              <div class="section-heading"><div><span class="eyebrow">MEU DESENVOLVIMENTO</span><h2>Skill Tree <span class="sparkle">✦</span></h2><p class="section-subtitle">Suas habilidades e trilhas aparecerão aqui conforme você avançar.</p></div></div>
+              <div class="empty-feed-message">Nenhuma habilidade registrada ainda.</div>
+            </section>
+
+            <!-- MURAL -->
+            <section class="profile-extra-section" id="thanksSection">
+              <div class="section-heading">
+                <div>
+                  <span class="eyebrow">PALAVRAS QUE FICAM</span>
+                  <h2>
+                    Mural de Agradecimentos <span class="sparkle">✧</span>
+                  </h2>
+                  <p class="section-subtitle">
+                    Pequenas mensagens de quem cruzou seu caminho.
+                  </p>
+                </div>
+                <button class="text-button" id="addThanks" type="button">
+                  ＋ Deixar mensagem
+                </button>
+              </div>
+              <div class="thanks-grid" id="thanksGrid"><div class="empty-feed-message">Ainda não há agradecimentos.</div></div>
+            </section>
+
+            <!-- ATIVIDADE -->
+            <section class="activity-section" id="activitySection">
+              <div class="section-heading">
+                <div>
+                  <span class="eyebrow">RECENTEMENTE</span>
+                  <h2>Atividade recente</h2>
+                </div>
+                <button class="text-button" data-switch="atividade">
+                  Ver tudo ↗
+                </button>
+              </div>
+              <div class="empty-feed-message">Sua atividade aparecerá aqui quando você começar a usar a LumiNova.</div>
+            </section>
+
+            <!-- SOBRE -->
+            <section class="about-panel hidden" id="aboutPanel">
+              <span class="eyebrow">UM POUCO SOBRE MIM</span><h2>Seu espaço, sua história.</h2><p>Adicione uma apresentação ao editar seu perfil.</p><div class="skills" id="profileSkills"></div>
+            </section>
+            <section class="about-panel hidden" id="allActivity">
+              <span class="eyebrow">MEU CAMINHO</span><h2>Uma jornada em construção</h2><p>Seu histórico aparecerá aqui quando houver atividade real.</p><div class="empty-feed-message">Nenhuma atividade registrada.</div>
+            </section>
+            <section class="about-panel hidden" id="achievementsPanel">
+              <span class="eyebrow">MINHAS CONQUISTAS</span><h2>Suas conquistas aparecerão aqui.</h2><div class="empty-feed-message">Nenhuma conquista registrada ainda.</div>
+            </section>
+          </section>
+
+          <!-- COLUNA DIREITA -->
+          <aside class="right-column">
+            <section class="side-card progress-card"><div class="side-card-heading"><h3>Minha jornada</h3><span class="sparkle">✧</span></div><div class="empty-feed-message">Seu progresso será registrado conforme você participar da LumiNova.</div></section>
+            <section class="side-card" id="conquistas">
+              <div class="side-card-heading"><h3>Conquistas importantes</h3><button class="tiny-link" data-switch="conquistas">Ver todas ↗</button></div><div class="empty-feed-message">Nenhuma conquista ainda.</div>
+            </section>
+            <section class="side-card favorites-card">
+              <div class="side-card-heading">
+                <h3>Meu cantinho</h3>
+                <button class="tiny-link" id="editQuote">Editar ↗</button>
+              </div>
+              <div class="quote-mark">“</div>
+              <p id="favoriteQuote">
+                Aprender é descobrir que sempre existe um novo universo.
+              </p>
+              <span class="quote-credit">— minha frase favorita</span>
+            </section>
+            <p class="footer-note">
+              FEITO DE IDEIAS & BOAS CONEXÕES <span>✦</span>
+            </p>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <input type="file" id="avatarFile" accept="image/*" hidden />
+    <input type="file" id="coverFile" accept="image/*" hidden />
+
+    <!-- MODAL PERSONALIZAR -->
+    <div class="modal-backdrop" id="settingsModal" aria-hidden="true">
+      <section
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="settingsTitle"
+      >
+        <button class="modal-close" data-close aria-label="Fechar">×</button>
+        <span class="eyebrow">DO SEU JEITO</span>
+        <h2 id="settingsTitle">Personalizar perfil</h2>
+        <p class="modal-intro">
+          Seu perfil é seu universo. Mude as cores, a capa e o que você quer
+          mostrar.
+        </p>
+        <form id="profileForm">
+          <label
+            >Nome de exibição<input
+              id="nameInput"
+              maxlength="40"
+              value="Seu nome"
+          /></label>
+          <label
+            >Usuário<input
+              id="handleInput"
+              maxlength="32"
+              value=""
+          /></label>
+          <label
+            >Bio<textarea id="bioInput" maxlength="180" rows="3" placeholder="Conte um pouco sobre você..."></textarea
+            >
+          </label>
+          <label
+            >Cor de fundo do perfil<input
+              type="color"
+              id="pageBgInput"
+              value="#0b0917"
+            /><small class="field-hint"
+              >Essa opção muda somente o fundo da página. Os detalhes continuam
+              harmonizados.</small
+            ></label
+          >
+          <label
+            >Estilo da capa<select id="coverStyle">
+              <option value="cosmic">Cosmos roxo</option>
+              <option value="ocean">Oceano azul</option>
+              <option value="sunset">Nebulosa rosa</option>
+              <option value="forest">Aurora verde</option>
+            </select></label
+          >
+          <div class="modal-actions">
+            <button type="button" class="button-secondary" data-close>
+              Cancelar</button
+            ><button class="button-primary" type="submit">
+              Salvar alterações
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- MODAL CONSTRUÇÃO -->
+    <div
+      class="construction-backdrop"
+      id="constructionModal"
+      aria-hidden="true"
+    >
+      <section
+        class="construction-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="constructionTitle"
+      >
+        <button
+          class="construction-close"
+          id="closeConstruction"
+          aria-label="Fechar"
+        >
+          ×
+        </button>
+        <div class="construction-art">
+          <span class="construction-orbit orbit-one"></span
+          ><span class="construction-orbit orbit-two"></span
+          ><span class="construction-star">✦</span
+          ><span class="construction-spark spark-one">✧</span
+          ><span class="construction-spark spark-two">✦</span>
+        </div>
+        <span class="eyebrow">LUMINOVA • NOVO UNIVERSO</span>
+        <h2 id="constructionTitle">Estamos preparando algo especial</h2>
+        <p>
+          Esta área ainda está em construção. Estamos criando essa parte da
+          LumiNova com carinho — ela estará disponível em uma próxima etapa.
+        </p>
+        <div class="construction-progress"><span></span></div>
+        <small class="construction-caption"
+          >EM CONSTRUÇÃO <span>·</span> VOLTE EM BREVE</small
+        >
+        <button
+          class="button-primary construction-ok"
+          id="constructionOk"
+          type="button"
+        >
+          Entendi ✦
+        </button>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script>
+      try {
+        const saved = JSON.parse(localStorage.getItem("luminovaUser") || "null");
+        if (saved) {
+          const name = document.getElementById("displayName");
+          const side = document.getElementById("sideName");
+          const handle = document.getElementById("displayHandle");
+          if (name) name.textContent = saved.name;
+          if (side) side.textContent = saved.name;
+          if (handle) handle.textContent = "@" + saved.nickname.replace(/^@/, "");
+        }
+      } catch (_) {}
+    </script>
+      <script src="script.js" defer></script>
+  </body>
+</html>

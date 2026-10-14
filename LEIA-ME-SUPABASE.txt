@@ -1,0 +1,33 @@
+LUMINOVA — DEPLOY NA NETLIFY + SUPABASE
+======================================
+
+O ZIP mantém os arquivos e o visual que você enviou e acrescenta a primeira integração real do Supabase para:
+- cadastro e login por e-mail/senha (Supabase Auth)
+- perfil (tabela public.profiles)
+- feed e publicações (public.posts / public.v_feed_posts)
+- comentários (public.comments)
+- logout e recuperação de senha por e-mail
+
+ANTES DE PUBLICAR
+1. Abra supabase-config.js em um editor de texto.
+2. Troque COLE_AQUI_SUA_SUPABASE_PROJECT_URL pela Project URL do seu projeto Supabase.
+3. Troque COLE_AQUI_SUA_CHAVE_PUBLICA_SUPABASE pela chave pública (anon/publishable).
+4. Salve. Não coloque service_role ou secret key nesse arquivo.
+5. Faça upload do conteúdo deste ZIP na Netlify (Deploy manually / arraste os arquivos e pastas extraídos).
+
+SUPABASE
+- O script SQL enviado anteriormente deve ter sido executado no SQL Editor do projeto.
+- Em Authentication > URL Configuration, configure Site URL para o domínio real da Netlify (ex.: https://seu-site.netlify.app).
+- Adicione o domínio da Netlify em Redirect URLs, incluindo https://seu-site.netlify.app/** e, se necessário, http://localhost:*/** para testes.
+- Se quiser confirmação de e-mail, deixe Email confirmations habilitado. Após cadastro, o usuário precisará confirmar o e-mail antes de entrar.
+- O banco precisa conter as tabelas public.profiles, public.posts, public.comments e a view public.v_feed_posts do SQL fornecido.
+
+IMPORTANTE
+- Este é um site estático. A Project URL e a chave anon/publishable são públicas por definição; segurança vem das políticas RLS do banco. Nunca publique service_role/secret key.
+- O SQL que você forneceu tem políticas RLS para leitura/criação de posts e comentários. Teste com duas contas diferentes antes de lançar publicamente.
+- A integração atual cobre login/cadastro, perfil, feed, publicação e comentários. As áreas de comunidades e mentoria ainda contêm partes de demonstração/localStorage e precisam de uma etapa própria para ficarem totalmente sincronizadas no banco.
+- O login aceita e-mail; login diretamente por apelido não está habilitado.
+- A recuperação de senha envia o link para o e-mail informado. Ajuste as URLs de redirecionamento no painel do Supabase.
+
+SE O CADASTRO FALHAR
+Confira se o SQL foi executado, se a chave/URL estão corretas e se o nome de usuário escolhido ainda não existe. Abra o Console do navegador (F12 > Console) para ver detalhes técnicos.

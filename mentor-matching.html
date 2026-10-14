@@ -1,0 +1,53 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b16"><title>Mentor Matching — LumiNova</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+<style>
+.ln-mentor-join{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0 22px;border-bottom:1px solid var(--ln-line);margin-bottom:20px}
+.ln-mentor-join p{margin:6px 0 0}.ln-quiz-overlay{position:fixed;inset:0;z-index:1000;background:rgba(3,5,14,.88);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:18px;overflow:auto}
+.ln-quiz-box{width:min(680px,100%);max-height:94vh;overflow:auto;background:#0b1020;border:1px solid #34384b;padding:clamp(20px,4vw,36px);color:#eef2ff}
+.ln-quiz-box h2{font-family:Fraunces,serif;font-size:clamp(27px,4vw,38px);font-weight:400;margin:8px 0 10px}
+.ln-quiz-box p{color:#aeb6d1;line-height:1.6}.ln-quiz-progress{height:3px;background:#252b40;margin:18px 0}.ln-quiz-progress span{display:block;height:100%;background:#8b5cf6}
+.ln-quiz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:16px 0 24px}
+.ln-quiz-option{display:flex;align-items:center;gap:10px;padding:13px;border:1px solid #34384b;background:#101629;color:#e9eef7;text-align:left;cursor:pointer;min-height:48px}
+.ln-quiz-option.selected{border-color:#a78bfa;background:#21183a}.ln-quiz-option input{accent-color:#8b5cf6}
+.ln-quiz-footer{display:flex;justify-content:space-between;gap:10px;margin-top:22px}.ln-quiz-field{display:block;margin:14px 0}.ln-quiz-field label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#aeb6d1;margin-bottom:8px}
+.ln-quiz-field input,.ln-quiz-field select,.ln-quiz-field textarea{width:100%;background:#101629;color:#eef2ff;border:1px solid #34384b;padding:12px;min-height:44px}
+.ln-quiz-community-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ln-quiz-community-list label{border:1px solid #34384b;padding:12px;display:flex;gap:8px;align-items:center}
+.ln-match-score{display:inline-block;border:1px solid currentColor;padding:5px 9px;font-size:12px;margin:5px 0 12px}
+.ln-chat-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.ln-chat-tab{border:1px solid var(--ln-line);background:transparent;color:inherit;padding:10px 14px;cursor:pointer}
+.ln-chat-tab.active{border-color:#a78bfa;background:rgba(139,92,246,.14)}
+.ln-chat-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.65fr);gap:16px}
+.ln-chat-window{border:1px solid var(--ln-line);min-height:300px;display:flex;flex-direction:column}
+.ln-chat-head{padding:14px;border-bottom:1px solid var(--ln-line);font-weight:600}
+.ln-chat-messages{padding:14px;display:flex;flex-direction:column;gap:10px;flex:1;min-height:180px;max-height:360px;overflow:auto}
+.ln-chat-message{padding:10px 12px;border:1px solid var(--ln-line);max-width:88%;align-self:flex-start;line-height:1.5}
+.ln-chat-message.mine{align-self:flex-end;background:rgba(139,92,246,.14);border-color:rgba(167,139,250,.45)}
+.ln-chat-compose{display:flex;gap:8px;padding:12px;border-top:1px solid var(--ln-line)}
+.ln-chat-compose input{flex:1;min-width:0;background:transparent;border:1px solid var(--ln-line);color:inherit;padding:11px}
+.ln-chat-people{border:1px solid var(--ln-line);padding:14px}
+.ln-chat-person{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--ln-line)}
+.ln-chat-person:last-child{border-bottom:0}
+.ln-chat-person button{white-space:nowrap}
+.ln-chat-note{font-size:12px;color:var(--ln-muted);line-height:1.6;margin-top:10px}
+@media(max-width:760px){.ln-chat-layout{grid-template-columns:1fr}}
+@media(max-width:580px){.ln-mentor-join{align-items:flex-start;flex-direction:column}.ln-quiz-options,.ln-quiz-community-list{grid-template-columns:1fr}}
+</style>
+</head><body class="ln-page"><div class="sky" aria-hidden="true"><div class="haze haze--north"></div><div class="haze haze--south"></div><div class="belt"></div><div class="stars stars--far"></div><div class="stars stars--near"></div><div class="vignette"></div></div><div class="ln-layout"><aside class="sidebar ln-profile-sidebar"><a class="brand" href="perfil.html"><span class="brand-mark">✦</span><span>Lumi<span>Nova</span></span></a><p class="nav-label">ESPAÇO</p><nav class="main-nav"><a href="geral.html" class="nav-link"><span>⌂</span> Geral</a><a href="comunidades.html" class="nav-link"><span>◈</span> Comunidades</a><a href="mentor-matching.html" class="nav-link active"><span>♡</span> Mentor Matching</a><a href="perfil.html" class="nav-link"><span>◎</span> Perfil</a></nav></aside><main class="ln-content"><header class="ln-top"><button type="button" class="ln-theme-toggle" id="lnThemeToggle" aria-label="Alternar tema" title="Alternar modo claro/escuro">☼ Tema</button><div class="ln-crumb"><a href="comunidades.html">Comunidades</a> <span>/</span> Mentor Matching</div><span class="ln-kicker">CONEXÕES QUE FAZEM CRESCER</span></header><section class="ln-hero"><span class="ln-kicker">MENTOR MATCHING</span><h1 class="ln-title">Encontre sua próxima<br>conexão de aprendizado.</h1><p class="ln-subtitle">Explore perfis, veja interesses em comum e curta ou passe — uma experiência inspirada no gesto simples de apps de matching.</p></section><section class="ln-panel ln-match-panel"><div class="ln-panel-head"><h2>Quem combina com você?</h2><span id="matchCount" class="ln-muted">Perfis para descobrir</span></div>
+<div class="ln-mentor-join"><div><strong>Quer se tornar mentor?</strong><p class="ln-muted">Conte sua experiência e escolha em quais comunidades gostaria de ajudar.</p></div><button class="ln-btn ghost" id="becomeMentor">Quero me tornar mentor ↗</button></div>
+<div id="mentorQuizHost"></div><div id="matchCard" class="ln-match-card"></div><div class="ln-match-actions"><button class="ln-btn ghost" id="passMentor">× Passar</button><button class="ln-btn" id="likeMentor">♡ Tenho interesse</button></div><div id="matchFeedback" class="ln-notice" aria-live="polite"></div><div class="ln-panel-head" style="margin-top:30px"><h2>Conexões salvas</h2></div><div id="matchesSaved" class="ln-saved-matches"></div></section>
+<section class="ln-panel" id="mentorChats" style="margin-top:22px">
+ <div class="ln-panel-head"><h2>Conversas da mentoria</h2><span class="ln-muted">Aprenda em conjunto</span></div>
+ <p class="ln-muted">Converse diretamente com seu mentor ou participe do chat geral com todas as pessoas que ele auxilia. Mentores também podem iniciar conversas privadas com quem escolherem.</p>
+ <div class="ln-chat-tabs" role="tablist" aria-label="Tipo de conversa">
+  <button class="ln-chat-tab active" data-chat-tab="mentor">Conversa com meu mentor</button>
+  <button class="ln-chat-tab" data-chat-tab="general">Chat geral</button>
+  <button class="ln-chat-tab" data-chat-tab="private">Chats privados</button>
+ </div>
+ <div class="ln-chat-layout">
+  <div class="ln-chat-window">
+   <div class="ln-chat-head" id="chatTitle">Conversa com meu mentor</div>
+   <div class="ln-chat-messages" id="chatMessages" aria-live="polite"></div>
+   <form class="ln-chat-compose" id="chatForm"><input id="chatInput" maxlength="600" placeholder="Escreva uma mensagem..." aria-label="Mensagem" required><button class="ln-btn" type="submit">Enviar</button></form>
+  </div>
+  <aside class="ln-chat-people"><strong id="chatPeopleTitle">Seu mentor</strong><div id="chatPeople"></div><p class="ln-chat-note">As mensagens desta área ainda não estão conectadas ao banco de dados.</p></aside>
+ </div>
+</section></main></div><script>(()=>{const k="luminova-theme",b=document.querySelector("#lnThemeToggle");function a(){const l=localStorage.getItem(k)==="light";document.body.classList.toggle("light-mode",l);b.textContent=l?"☾ Tema":"☼ Tema"}a();b.addEventListener("click",()=>{localStorage.setItem(k,document.body.classList.contains("light-mode")?"dark":"light");a()})})();</script><script src="mentor-matching.js" defer></script></body></html>
