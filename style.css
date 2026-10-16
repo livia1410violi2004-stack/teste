@@ -3724,3 +3724,93 @@ body.ln-page.light-mode .ln-theme-toggle{background:#fff;color:#20243a;border-co
 body.ln-page.light-mode .ln-post,body.ln-page.light-mode .ln-chat-message,body.ln-page.light-mode .ln-saved-match{background:#f7f8fc;color:#20243a}
 body.ln-page.light-mode .ln-nav-link:hover,body.ln-page.light-mode .nav-link:hover{background:#edf0f8;color:#20243a}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* ============================================================
+   CORREÇÕES (sem alterar o layout existente)
+   ============================================================ */
+
+/* Cadastro abre como sobreposição fixa sobre a tela.
+   A regra genérica .modal (position: relative) estava sobrescrevendo o overlay. */
+#signup.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  width: auto;
+  max-width: none;
+  max-height: none;
+  overflow-y: auto;
+  padding: 20px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: rgba(4, 6, 15, 0.85);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+}
+#signup.modal.open { display: flex; }
+
+/* Perfil: widgets ocultáveis/reordenáveis, estatísticas e conquistas */
+.widget-hidden { display: none !important; }
+.side-card[data-widget] { cursor: grab; }
+.side-card.widget-dragging { opacity: 0.5; }
+.profile-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 14px;
+}
+.profile-stats span {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.profile-stats strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--gold-soft);
+}
+.achievement strong { font-size: 12px; font-weight: 500; }
+.achievement small { font-size: 10.5px; color: var(--muted); line-height: 1.4; }
+.achievement.locked { opacity: 0.42; filter: grayscale(0.7); }
+.widget-options {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin: 12px 0;
+}
+.widget-options legend {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  padding: 0 6px;
+}
+.widget-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  font-size: 13px;
+}
+.widget-options input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  accent-color: var(--gold);
+}
+
+#accentInput {
+  width: 100%;
+  height: 40px;
+  padding: 4px;
+}
+
+
+/* Ajustes de navegação, pesquisa e progresso do perfil LumiNova */
+.app-shell{min-height:100vh;align-items:stretch}.sidebar{height:100vh;min-height:100vh;position:sticky;top:0;align-self:flex-start;overflow-y:auto;display:flex;flex-direction:column}.sidebar-bottom{margin-top:auto;padding-bottom:22px}.main-content{min-width:0;min-height:100vh;padding-bottom:48px}.content-grid{align-items:start}.left-column,.right-column{min-width:0}.profile-extra-section{margin-top:28px}.ln-profile-search-results{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:1000;max-height:360px;overflow:auto;padding:8px;border:1px solid rgba(190,170,255,.22);border-radius:13px;background:#111426;box-shadow:0 18px 45px #0008}.ln-profile-search-results.visible{display:block}.search-box{position:relative}.ln-profile-search-results a{display:grid;gap:4px;padding:10px;border-radius:8px;color:#e9e8f7;text-decoration:none}.ln-profile-search-results a:hover{background:#ffffff0d}.ln-profile-search-results small{color:#b9a2ff;font-size:10px;text-transform:uppercase;letter-spacing:1px}.ln-profile-search-results strong{font-size:12px}.ln-profile-search-results span,.ln-profile-search-results p{font-size:11px;color:#aeb3cb;margin:0}.ln-journey{padding:14px 0 3px}.ln-journey-top{display:flex;justify-content:space-between;gap:8px;font-size:12px;margin-bottom:12px}.ln-journey-top span,.ln-journey small{color:#a6abc4;font-size:11px}.ln-journey-track{height:7px;border-radius:20px;background:#ffffff12;overflow:hidden;margin:9px 0}.ln-journey-track span{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#9c87ff,#e8c88a);transition:width .3s}.ln-skill-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ln-skill-node{display:flex;gap:12px;align-items:center;padding:16px;border:1px solid #ffffff16;border-radius:13px;background:#ffffff04}.ln-skill-node>span{font-size:23px;color:#9da3ba}.ln-skill-node.unlocked>span{color:#e8c88a}.ln-skill-node>div{flex:1;min-width:0}.ln-skill-node strong{display:block;font-size:12px}.ln-skill-node small{font-size:10px;color:#a6abc4}.community-card{cursor:pointer}.community-card:hover{transform:translateY(-3px)}.profile-stats span{min-width:72px}@media(max-width:900px){.sidebar{height:auto;min-height:0;position:relative;top:auto}.sidebar-bottom{margin-top:20px}.ln-skill-grid{grid-template-columns:1fr}.main-content{padding-bottom:28px}}
+
+.contribution-total{display:grid;place-items:center;min-width:44px;height:44px;padding:0 12px;border:1px solid #e8c88a55;border-radius:12px;color:#e8c88a;font-size:18px}.contributions-feed{display:grid;gap:10px}.contribution-item{display:flex;gap:13px;padding:15px;border:1px solid #ffffff16;border-radius:13px;background:#ffffff04}.contribution-icon{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:10px;background:#b9a6ff18;color:#c8b8ff}.contribution-item>div{min-width:0;flex:1}.contribution-item-top{display:flex;justify-content:space-between;gap:10px;font-size:12px}.contribution-item-top time{font-size:10px;color:#9ba2bc}.contribution-item p{margin:7px 0 0;color:#c6c9dc;font-size:12px;line-height:1.6;overflow-wrap:anywhere}

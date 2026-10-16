@@ -6,7 +6,7 @@
     <title>LumiNova</title>
     <meta
       name="description"
-      content="Comunidades para quem quer aprender junto."
+      content="Uma rede social para descobrir interesses, compartilhar ideias e encontrar sua comunidade."
     />
     <meta name="theme-color" content="#04060f" />
     <link
@@ -32,13 +32,6 @@
       <div class="stars stars--near"></div>
       <div class="vignette"></div>
     </div>
-    <!--INTRODUÇÂO-->
-    <div class="intro" id="intro">
-      <div class="intro__ring"></div>
-      <div class="intro__core"></div>
-      <p class="intro__word">LumiNova</p>
-      <button class="intro__skip" id="skip">Pular</button>
-    </div>
     <!--Telas Boas Vinda-->
     <section class="screen welcome is-active" id="screenWelcome">
       <div class="welcome__inner">
@@ -60,11 +53,11 @@
 
         <h1 class="welcome__title">Luminova</h1>
 
-        <p class="welcome__sub">Aprender junto é melhor.</p>
+        <p class="welcome__sub">Descubra o que você ama. Encontre sua galera.</p>
 
         <button class="welcome__cta" id="goLogin">Entrar</button>
 
-        <p class="welcome__foot">Comunidades · Mentoria · Reconhecimento</p>
+        <p class="welcome__foot">Interesses · Comunidades · Conversas · Criatividade</p>
       </div>
     </section>
 
@@ -76,13 +69,12 @@
         <p class="login__eyebrow">Bem-vindo de volta</p>
         <h1 class="login__title">Aprender junto<br />é <em>melhor</em>.</h1>
         <p class="login__text">
-          Entre para continuar de onde parou. Suas comunidades, seus pontos e as
-          conversas que você acompanha estão esperando.
+          Entre para acompanhar publicações, conversar com pessoas que curtem as mesmas coisas e participar das suas comunidades.
         </p>
 
         <ul class="login__facts">
           <li>
-            <span class="dot"></span> Participe de até 3 comunidades ativas
+            <span class="dot"></span> Faça parte de até 4 comunidades
           </li>
           <li>
             <span class="dot"></span> Ganhe pontos e badges por contribuição
@@ -95,11 +87,11 @@
 
       <div class="card">
         <h2>Entrar</h2>
-        <p class="card__sub">Use seu e-mail ou apelido</p>
+        <p class="card__sub">Entre com seu e-mail cadastrado</p>
 
         <form id="loginForm" novalidate>
           <div class="field">
-            <label for="user">E-mail ou apelido</label>
+            <label for="user">E-mail</label>
             <input
               id="user"
               type="text"
@@ -194,6 +186,6 @@
       </div>
     </div>
 
-    <script>(()=>{const k="luminova-theme",b=document.querySelector("#lnThemeToggle");function a(){const l=localStorage.getItem(k)==="light";document.body.classList.toggle("light-mode",l);b.textContent=l?"☾ Tema":"☼ Tema"}a();b.addEventListener("click",()=>{localStorage.setItem(k,document.body.classList.contains("light-mode")?"dark":"light");a()})})();</script><script src="script.js" defer></script>
+    <script>(()=>{const b=document.querySelector("#lnThemeToggle");if(!b)return;b.addEventListener("click",()=>document.body.classList.toggle("light-mode"));})();</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="script.js" defer></script>
   </body>
 </html>

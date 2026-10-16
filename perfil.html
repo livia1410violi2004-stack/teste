@@ -80,7 +80,7 @@
           <div class="breadcrumbs">LumiNova <span>/</span> Meu perfil</div>
           <label class="search-box"
             ><span>⌕</span
-            ><input type="search" placeholder="Buscar pessoas, comunidades..."
+            ><input type="search" id="profileSearch" placeholder="Buscar pessoas, comunidades..."
           /></label>
           <button
             class="icon-button theme-toggle"
@@ -133,6 +133,7 @@
               <div class="profile-meta">
                 <span id="profileLocation">⌖ Localização não informada</span><span id="profileRole">◈ Adicione seus interesses</span>
               </div>
+              <div class="profile-stats" id="profileStats"></div>
             </div>
             <div class="profile-actions">
               <button class="button-secondary" id="editProfile">
@@ -221,6 +222,12 @@
               <div class="empty-feed-message">Nenhuma habilidade registrada ainda.</div>
             </section>
 
+            <!-- CONTRIBUIÇÕES REAIS DO SUPABASE -->
+            <section class="profile-extra-section" id="contributionsSection">
+              <div class="section-heading"><div><span class="eyebrow">SUA PARTICIPAÇÃO</span><h2>Minhas contribuições <span class="sparkle">✦</span></h2><p class="section-subtitle">Publicações e comentários feitos por você na LumiNova.</p></div><strong id="contributionsValue" class="contribution-total">0</strong></div>
+              <div id="contributionsFeed" class="contributions-feed"><div class="empty-feed-message">Carregando suas contribuições...</div></div>
+            </section>
+
             <!-- MURAL -->
             <section class="profile-extra-section" id="thanksSection">
               <div class="section-heading">
@@ -268,11 +275,11 @@
 
           <!-- COLUNA DIREITA -->
           <aside class="right-column">
-            <section class="side-card progress-card"><div class="side-card-heading"><h3>Minha jornada</h3><span class="sparkle">✧</span></div><div class="empty-feed-message">Seu progresso será registrado conforme você participar da LumiNova.</div></section>
-            <section class="side-card" id="conquistas">
+            <section class="side-card progress-card" data-widget="progress"><div class="side-card-heading"><h3>Minha jornada</h3><span class="sparkle">✧</span></div><div class="empty-feed-message">Seu progresso será registrado conforme você participar da LumiNova.</div></section>
+            <section class="side-card" id="conquistas" data-widget="conquistas">
               <div class="side-card-heading"><h3>Conquistas importantes</h3><button class="tiny-link" data-switch="conquistas">Ver todas ↗</button></div><div class="empty-feed-message">Nenhuma conquista ainda.</div>
             </section>
-            <section class="side-card favorites-card">
+            <section class="side-card favorites-card" data-widget="cantinho">
               <div class="side-card-heading">
                 <h3>Meu cantinho</h3>
                 <button class="tiny-link" id="editQuote">Editar ↗</button>
@@ -336,6 +343,16 @@
               harmonizados.</small
             ></label
           >
+          <label
+            >Cor de destaque<input type="color" id="accentInput" value="#e8c88a"
+            /><small class="field-hint">Usada em títulos, botões de destaque e barras de progresso.</small></label
+          >
+          <fieldset class="widget-options">
+            <legend>Widgets da coluna direita (arraste para reorganizar)</legend>
+            <label><input type="checkbox" data-widget-toggle="progress" /> Minha jornada</label>
+            <label><input type="checkbox" data-widget-toggle="conquistas" /> Conquistas importantes</label>
+            <label><input type="checkbox" data-widget-toggle="cantinho" /> Meu cantinho</label>
+          </fieldset>
           <label
             >Estilo da capa<select id="coverStyle">
               <option value="cosmic">Cosmos roxo</option>
@@ -402,20 +419,9 @@
     </div>
 
     <div class="toast" id="toast" role="status"></div>
-
-    <script>
-      try {
-        const saved = JSON.parse(localStorage.getItem("luminovaUser") || "null");
-        if (saved) {
-          const name = document.getElementById("displayName");
-          const side = document.getElementById("sideName");
-          const handle = document.getElementById("displayHandle");
-          if (name) name.textContent = saved.name;
-          if (side) side.textContent = saved.name;
-          if (handle) handle.textContent = "@" + saved.nickname.replace(/^@/, "");
-        }
-      } catch (_) {}
-    </script>
-      <script src="script.js" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="script.js" defer></script>
+    <script src="supabase-profile.js" defer></script>
   </body>
 </html>

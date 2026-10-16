@@ -1,0 +1,1 @@
+# Supabase Auth é chamado diretamente pelo frontend; não requer proxy /api para login/cadastro.
